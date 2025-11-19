@@ -256,7 +256,7 @@ export default function Home() {
                       ))}
                     </div>
                     <p className="text-gray-700 mb-6 leading-relaxed">
-                      "{testimonial.content}"
+                      {testimonial.content}
                     </p>
                     <div>
                       <p className="font-semibold">{testimonial.name}</p>
@@ -295,7 +295,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 text-lg px-8"
+                  className="border-white text-[var(--fastteam-primary)] hover:bg-white/10 text-lg px-8"
                   asChild
                 >
                   <Link href="/contato">Falar com Especialista</Link>

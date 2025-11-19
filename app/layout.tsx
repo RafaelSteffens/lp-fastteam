@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'FastTeam - Transforme Sua Operação com Automação Inteligente',
+  title: 'FastTeam',
   description: 'FastTeam é a solução completa de CRM, ERP e automação para empresas que buscam velocidade e eficiência. Gerencie seu time, clientes e operações em uma única plataforma.',
   keywords: 'CRM, ERP, automação, gestão de equipe, atendimento rápido, operações ágeis, software empresarial, gestão comercial',
   authors: [{ name: 'FastTeam' }],
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://fastteam.com',
-    title: 'FastTeam - Transforme Sua Operação com Automação Inteligente',
+    url: '',
+    title: 'FastTeam',
     description: 'FastTeam é a solução completa de CRM, ERP e automação para empresas que buscam velocidade e eficiência.',
     siteName: 'FastTeam',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FastTeam - Transforme Sua Operação com Automação Inteligente',
+    title: 'FastTeam',
     description: 'FastTeam é a solução completa de CRM, ERP e automação para empresas que buscam velocidade e eficiência.',
   },
 };
