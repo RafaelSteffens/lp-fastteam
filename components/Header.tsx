@@ -46,7 +46,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-foreground/80 hover:text-[var(--fastteam-primary)] transition-colors font-medium"
+                className="text-foreground/80 hover:text-(--fastteam-primary) transition-colors font-medium"
               >
                 {link.label}
               </Link>
@@ -83,18 +83,18 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-foreground/80 hover:text-[var(--fastteam-primary)] transition-colors font-medium py-2"
+                className="text-foreground/80 hover:text-(--fastteam-primary) transition-colors font-medium py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
             <div className="flex flex-col space-y-2 pt-4 border-t">
-              <Button variant="outline" asChild>
-                <Link href="/login">Entrar</Link>
+              <Button className="bg-gradient-primary" asChild>
+                <Link href="https://fastteam.vercel.app/login" target='blank'>Entrar</Link>
               </Button>
               <Button className="bg-gradient-primary" asChild>
-                <Link href="/cadastro">Começar Grátis</Link>
+                <Link href="/precos" target='blank'>Começar Agora</Link>
               </Button>
             </div>
           </nav>
