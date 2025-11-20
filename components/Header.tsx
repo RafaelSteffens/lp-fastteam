@@ -55,10 +55,10 @@ export default function Header() {
 
           <div className="hidden md:flex items-center space-x-4">
             <Button variant="ghost" asChild>
-              <Link href="/login">Entrar</Link>
+              <Link href="https://fastteam.vercel.app/login" target='blank'>Entrar</Link>
             </Button>
             <Button className="bg-gradient-primary hover:opacity-90" asChild>
-              <Link href="/cadastro">Começar Grátis</Link>
+              <Link href="/precos">Começar Agora</Link>
             </Button>
           </div>
 
