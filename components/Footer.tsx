@@ -21,28 +21,28 @@ export default function Footer() {
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="hover:text-[var(--fastteam-primary)] transition-colors"
+                className="hover:text-(--fastteam-primary) transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="hover:text-[var(--fastteam-primary)] transition-colors"
+                className="hover:text-(--fastteam-primary) transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="hover:text-[var(--fastteam-primary)] transition-colors"
+                className="hover:text-(--fastteam-primary) transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="hover:text-[var(--fastteam-primary)] transition-colors"
+                className="hover:text-(--fastteam-primary) transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -56,7 +56,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/funcionalidades"
-                  className="hover:text-[var(--fastteam-primary)] transition-colors"
+                  className="hover:text-(--fastteam-primary) transition-colors"
                 >
                   Funcionalidades
                 </Link>
@@ -64,23 +64,15 @@ export default function Footer() {
               <li>
                 <Link
                   href="/precos"
-                  className="hover:text-[var(--fastteam-primary)] transition-colors"
+                  className="hover:text-(--fastteam-primary) transition-colors"
                 >
                   Preços
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/integrações"
-                  className="hover:text-[var(--fastteam-primary)] transition-colors"
-                >
-                  Integrações
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/seguranca"
-                  className="hover:text-[var(--fastteam-primary)] transition-colors"
+                  className="hover:text-(--fastteam-primary) transition-colors"
                 >
                   Segurança
                 </Link>
@@ -94,7 +86,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/sobre"
-                  className="hover:text-[var(--fastteam-primary)] transition-colors"
+                  className="hover:text-(--fastteam-primary) transition-colors"
                 >
                   Sobre Nós
                 </Link>
@@ -102,23 +94,15 @@ export default function Footer() {
               <li>
                 <Link
                   href="/blog"
-                  className="hover:text-[var(--fastteam-primary)] transition-colors"
+                  className="hover:text-(--fastteam-primary) transition-colors"
                 >
                   Blog
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/carreiras"
-                  className="hover:text-[var(--fastteam-primary)] transition-colors"
-                >
-                  Carreiras
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/contato"
-                  className="hover:text-[var(--fastteam-primary)] transition-colors"
+                  className="hover:text-(--fastteam-primary) transition-colors"
                 >
                   Contato
                 </Link>
@@ -132,7 +116,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/documentacao"
-                  className="hover:text-[var(--fastteam-primary)] transition-colors"
+                  className="hover:text-(--fastteam-primary) transition-colors"
                 >
                   Documentação
                 </Link>
@@ -140,25 +124,9 @@ export default function Footer() {
               <li>
                 <Link
                   href="/suporte"
-                  className="hover:text-[var(--fastteam-primary)] transition-colors"
+                  className="hover:text-(--fastteam-primary) transition-colors"
                 >
                   Suporte
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/api"
-                  className="hover:text-[var(--fastteam-primary)] transition-colors"
-                >
-                  API
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/status"
-                  className="hover:text-[var(--fastteam-primary)] transition-colors"
-                >
-                  Status do Sistema
                 </Link>
               </li>
             </ul>
@@ -172,19 +140,19 @@ export default function Footer() {
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link
               href="/privacidade"
-              className="text-gray-400 hover:text-[var(--fastteam-primary)] text-sm transition-colors"
+              className="text-gray-400 hover:text-(--fastteam-primary) text-sm transition-colors"
             >
               Privacidade
             </Link>
             <Link
               href="/termos"
-              className="text-gray-400 hover:text-[var(--fastteam-primary)] text-sm transition-colors"
+              className="text-gray-400 hover:text-(--fastteam-primary) text-sm transition-colors"
             >
               Termos de Uso
             </Link>
             <Link
               href="/cookies"
-              className="text-gray-400 hover:text-[var(--fastteam-primary)] text-sm transition-colors"
+              className="text-gray-400 hover:text-(--fastteam-primary) text-sm transition-colors"
             >
               Cookies
             </Link>

@@ -30,7 +30,7 @@ export default function BlogPage() {
     category: 'Automação',
     readTime: '8 min',
     date: '15 Jan 2025',
-    slug: 'automacoes-essenciais-2025',
+    slug: '',
     image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg',
   };
 
@@ -52,7 +52,7 @@ export default function BlogPage() {
       category: 'Gestão',
       readTime: '5 min',
       date: '10 Jan 2025',
-      slug: 'erp-vs-crm-diferencas',
+      slug: '',
       icon: BarChart3,
     },
     {
@@ -62,7 +62,7 @@ export default function BlogPage() {
       category: 'Vendas',
       readTime: '7 min',
       date: '8 Jan 2025',
-      slug: 'funil-vendas-otimizado',
+      slug: '',
       icon: TrendingUp,
     },
     {
@@ -72,7 +72,7 @@ export default function BlogPage() {
       category: 'Gestão',
       readTime: '6 min',
       date: '5 Jan 2025',
-      slug: 'gestao-equipe-remota',
+      slug: '',
       icon: Users,
     },
     {
@@ -82,7 +82,7 @@ export default function BlogPage() {
       category: 'Automação',
       readTime: '9 min',
       date: '3 Jan 2025',
-      slug: 'workflows-inteligentes',
+      slug: '',
       icon: Workflow,
     },
     {
@@ -92,7 +92,7 @@ export default function BlogPage() {
       category: 'Analytics',
       readTime: '5 min',
       date: '1 Jan 2025',
-      slug: 'metricas-crescimento',
+      slug: '',
       icon: Target,
     },
     {
@@ -102,7 +102,7 @@ export default function BlogPage() {
       category: 'Tecnologia',
       readTime: '8 min',
       date: '28 Dez 2024',
-      slug: 'ia-atendimento-cliente',
+      slug: '',
       icon: Sparkles,
     },
     {
@@ -112,7 +112,7 @@ export default function BlogPage() {
       category: 'Vendas',
       readTime: '7 min',
       date: '26 Dez 2024',
-      slug: 'reduzir-cac-estrategias',
+      slug: '',
       icon: TrendingUp,
     },
     {
@@ -122,7 +122,7 @@ export default function BlogPage() {
       category: 'CRM',
       readTime: '6 min',
       date: '23 Dez 2024',
-      slug: 'onboarding-clientes-excelencia',
+      slug: '',
       icon: Users,
     },
   ];
@@ -139,11 +139,11 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen pt-20">
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-green-50 via-white to-green-50">
+      <section className="py-16 lg:py-24 bg-linear-to-br from-green-50 via-white to-green-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto text-center">
-              <div className="inline-flex items-center space-x-2 bg-green-100 text-[var(--fastteam-primary-dark)] px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center space-x-2 bg-green-100 text-(--fastteam-primary-dark) px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Zap className="h-4 w-4" />
                 <span>Blog FastTeam</span>
               </div>
@@ -219,8 +219,8 @@ export default function BlogPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
-              <AnimatedSection key={post.slug} delay={index * 50}>
-                <Card className="h-full hover:shadow-lg transition-all hover:border-[var(--fastteam-primary)]/20 group">
+              <AnimatedSection key={post.title} delay={index * 50}>
+                <Card className="h-full hover:shadow-lg transition-all hover:border-(--fastteam-primary)/20 group">
                   <CardContent className="p-6 flex flex-col h-full">
                     <div className="bg-gradient-primary w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <post.icon className="h-6 w-6 text-white" />
@@ -228,7 +228,7 @@ export default function BlogPage() {
                     <Badge variant="outline" className="mb-3 w-fit">
                       {post.category}
                     </Badge>
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-[var(--fastteam-primary)] transition-colors">
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-(--fastteam-primary)] transition-colors">
                       {post.title}
                     </h3>
                     <p className="text-gray-600 mb-4 flex-1">{post.excerpt}</p>
@@ -242,7 +242,7 @@ export default function BlogPage() {
                       </div>
                       <Link
                         href={`/blog/${post.slug}`}
-                        className="text-[var(--fastteam-primary)] font-medium hover:underline flex items-center space-x-1"
+                        className="text-(--fastteam-primary) font-medium hover:underline flex items-center space-x-1"
                       >
                         <span>Ler</span>
                         <ArrowRight className="h-4 w-4" />
@@ -264,7 +264,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-[var(--fastteam-primary)] to-[var(--fastteam-primary-dark)] text-white">
+      <section className="py-16 lg:py-24 bg-linear-to-br from-(--fastteam-primary) to-(--fastteam-primary-dark) text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto text-center">
@@ -283,7 +283,7 @@ export default function BlogPage() {
                 />
                 <Button
                   size="lg"
-                  className="bg-white text-[var(--fastteam-primary)] hover:bg-gray-100"
+                  className="bg-white text-(--fastteam-primary) hover:bg-gray-100"
                 >
                   Inscrever
                 </Button>
