@@ -155,11 +155,11 @@ export default function FeaturesPage() {
 
   return (
     <div className="min-h-screen pt-20">
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-green-50 via-white to-green-50">
+      <section className="py-16 lg:py-24 bg-linear-to-br from-green-50 via-white to-green-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto text-center">
-              <div className="inline-flex items-center space-x-2 bg-green-100 text-[var(--fastteam-primary-dark)] px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center space-x-2 bg-green-100 text-(--fastteam-primary-dark) px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Zap className="h-4 w-4" />
                 <span>Recursos Poderosos</span>
               </div>
@@ -197,15 +197,15 @@ export default function FeaturesPage() {
                     <ul className="space-y-3">
                       {feature.features.map((item) => (
                         <li key={item} className="flex items-center space-x-3">
-                          <div className="w-2 h-2 rounded-full bg-[var(--fastteam-primary)]" />
+                          <div className="w-2 h-2 rounded-full bg-(--fastteam-primary)" />
                           <span className="text-gray-700">{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                    <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-12 aspect-square flex items-center justify-center">
-                      <feature.icon className="h-32 w-32 text-[var(--fastteam-primary)]" />
+                    <div className="bg-linear-to-br from-green-50 to-green-100 rounded-2xl p-12 aspect-square flex items-center justify-center">
+                      <feature.icon className="h-32 w-32 text-(--fastteam-primary)" />
                     </div>
                   </div>
                 </div>
@@ -232,9 +232,9 @@ export default function FeaturesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {additionalFeatures.map((feature, index) => (
               <AnimatedSection key={feature.title} delay={index * 50}>
-                <Card className="h-full hover:shadow-lg transition-all hover:border-[var(--fastteam-primary)]/20">
+                <Card className="h-full hover:shadow-lg transition-all hover:border-(--fastteam-primary)/20">
                   <CardContent className="pt-6">
-                    <feature.icon className="h-10 w-10 text-[var(--fastteam-primary)] mb-4" />
+                    <feature.icon className="h-10 w-10 text-(--fastteam-primary) mb-4" />
                     <h3 className="text-lg font-semibold mb-2">
                       {feature.title}
                     </h3>
@@ -247,7 +247,7 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-[var(--fastteam-primary)] to-[var(--fastteam-primary-dark)] text-white">
+      <section className="py-16 lg:py-24 bg-linear-to-br from-(--fastteam-primary) to-(--fastteam-primary-dark) text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto text-center">
@@ -259,7 +259,7 @@ export default function FeaturesPage() {
               </p>
               <Button
                 size="lg"
-                className="bg-white text-[var(--fastteam-primary)] hover:bg-gray-100 text-lg px-8"
+                className="bg-white text-(--fastteam-primary) hover:bg-gray-100 text-lg px-8"
                 asChild
               >
                 <Link href="/cadastro">

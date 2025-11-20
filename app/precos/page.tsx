@@ -122,11 +122,11 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen pt-20">
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-green-50 via-white to-green-50">
+      <section className="py-16 lg:py-24 bg-linear-to-br from-green-50 via-white to-green-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto text-center">
-              <div className="inline-flex items-center space-x-2 bg-green-100 text-[var(--fastteam-primary-dark)] px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center space-x-2 bg-green-100 text-(--fastteam-primary-dark) px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Zap className="h-4 w-4" />
                 <span>Preços Transparentes</span>
               </div>
@@ -151,8 +151,8 @@ export default function PricingPage() {
                 <Card
                   className={`relative h-full flex flex-col ${
                     plan.popular
-                      ? 'border-2 border-[var(--fastteam-primary)] shadow-xl scale-105'
-                      : 'border-2 hover:border-[var(--fastteam-primary)]/20'
+                      ? 'border-2 border-(--fastteam-primary) shadow-xl scale-105'
+                      : 'border-2 hover:border-(--fastteam-primary)/20'
                   }`}
                 >
                   {plan.popular && (
@@ -195,7 +195,7 @@ export default function PricingPage() {
                     <ul className="space-y-3">
                       {plan.features.map((feature) => (
                         <li key={feature} className="flex items-start space-x-3">
-                          <Check className="h-5 w-5 text-[var(--fastteam-primary)] flex-shrink-0 mt-0.5" />
+                          <Check className="h-5 w-5 text-(--fastteam-primary) shrink-0 mt-0.5" />
                           <span className="text-gray-700 text-sm">
                             {feature}
                           </span>
@@ -240,7 +240,7 @@ export default function PricingPage() {
                 <Card>
                   <CardContent className="pt-6">
                     <div className="flex gap-4">
-                      <HelpCircle className="h-6 w-6 text-[var(--fastteam-primary)] flex-shrink-0" />
+                      <HelpCircle className="h-6 w-6 text-(--fastteam-primary) shrink-0" />
                       <div>
                         <h3 className="text-lg font-semibold mb-2">
                           {faq.question}
@@ -260,7 +260,7 @@ export default function PricingPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-[var(--fastteam-primary)] text-[var(--fastteam-primary)]"
+                className="border-(--fastteam-primary) text-(--fastteam-primary)"
                 asChild
               >
                 <Link href="/contato">Entre em contato</Link>
@@ -270,7 +270,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-[var(--fastteam-primary)] to-[var(--fastteam-primary-dark)] text-white">
+      <section className="py-16 lg:py-24 bg-linear-to-br from-(--fastteam-primary) to-(--fastteam-primary-dark) text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto text-center">
@@ -283,7 +283,7 @@ export default function PricingPage() {
               </p>
               <Button
                 size="lg"
-                className="bg-white text-[var(--fastteam-primary)] hover:bg-gray-100 text-lg px-8"
+                className="bg-white text-(--fastteam-primary) hover:bg-gray-100 text-lg px-8"
                 asChild
               >
                 <Link href="/cadastro">

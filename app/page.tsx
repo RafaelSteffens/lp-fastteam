@@ -92,11 +92,11 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-white to-green-50 -z-10" />
+        <div className="absolute inset-0 bg-linear-to-br from-green-50 via-white to-green-50 -z-10" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <AnimatedSection>
-              <div className="inline-flex items-center space-x-2 bg-green-100 text-[var(--fastteam-primary-dark)] px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center space-x-2 bg-green-100 text-(--fastteam-primary-dark) px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Zap className="h-4 w-4" />
                 <span>Transforme sua operação hoje</span>
               </div>
@@ -150,7 +150,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <AnimatedSection key={feature.title} delay={index * 100}>
-                <Card className="h-full hover:shadow-lg transition-shadow border-2 hover:border-[var(--fastteam-primary)]/20">
+                <Card className="h-full hover:shadow-lg transition-shadow border-2 hover:border-(--fastteam-primary)/20">
                   <CardContent className="pt-6">
                     <div className="bg-gradient-primary w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                       <feature.icon className="h-6 w-6 text-white" />
@@ -172,7 +172,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
               <div>
-                <div className="inline-flex items-center space-x-2 bg-green-100 text-[var(--fastteam-primary-dark)] px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <div className="inline-flex items-center space-x-2 bg-green-100 text-(--fastteam-primary-dark) px-4 py-2 rounded-full text-sm font-medium mb-6">
                   <Shield className="h-4 w-4" />
                   <span>Resultados Comprovados</span>
                 </div>
@@ -188,7 +188,7 @@ export default function Home() {
                   {benefits.map((benefit, index) => (
                     <AnimatedSection key={benefit} delay={index * 100}>
                       <div className="flex items-start space-x-3">
-                        <CheckCircle2 className="h-6 w-6 text-[var(--fastteam-primary)] flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="h-6 w-6 text-(--fastteam-primary) shrink-0 mt-0.5" />
                         <span className="text-gray-700">{benefit}</span>
                       </div>
                     </AnimatedSection>
@@ -251,7 +251,7 @@ export default function Home() {
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star
                           key={i}
-                          className="h-5 w-5 fill-[var(--fastteam-primary)] text-[var(--fastteam-primary)]"
+                          className="h-5 w-5 fill-(--fastteam-primary) text-(--fastteam-primary)"
                         />
                       ))}
                     </div>
@@ -270,7 +270,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-[var(--fastteam-primary)] to-[var(--fastteam-primary-dark)] text-white">
+      <section className="py-16 lg:py-24 bg-linear-to-br from-(--fastteam-primary) to-(--fastteam-primary-dark) text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="max-w-3xl mx-auto text-center">
@@ -284,7 +284,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="bg-white text-[var(--fastteam-primary)] hover:bg-gray-100 text-lg px-8"
+                  className="bg-white text-(--fastteam-primary) hover:bg-gray-100 text-lg px-8"
                   asChild
                 >
                   <Link href="/cadastro">
@@ -295,7 +295,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-[var(--fastteam-primary)] hover:bg-white/10 text-lg px-8"
+                  className="border-white text-(--fastteam-primary) hover:bg-white/10 text-lg px-8"
                   asChild
                 >
                   <Link href="/contato">Falar com Especialista</Link>
