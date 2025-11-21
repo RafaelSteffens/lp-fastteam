@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import AnimatedSection from '@/components/AnimatedSection';
+import { Button } from '@/app/_components/ui/button';
+import { Card, CardContent } from '@/app/_components/ui/card';
+import AnimatedSection from '@/app/_components/AnimatedSection';
 import {
   Zap,
   Users,

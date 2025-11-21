@@ -11,6 +11,7 @@ async function main() {
     // Criar planos de preços
     const plans = [
         {
+            id: 'starter',
             name: 'Starter',
             icon: 'Zap',
             price: 'R$ 97',
@@ -32,6 +33,7 @@ async function main() {
             order: 1,
         },
         {
+            id: 'professional',
             name: 'Professional',
             icon: 'Users',
             price: 'R$ 297',
@@ -57,6 +59,7 @@ async function main() {
             order: 2,
         },
         {
+            id: 'enterprise',
             name: 'Enterprise',
             icon: 'Building2',
             price: 'Customizado',

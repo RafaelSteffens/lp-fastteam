@@ -1,29 +1,112 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
 model PricingPlan {
   id          String   @id @default(cuid())
   name        String   @unique
-  icon        String   // Nome do ícone (Zap, Users, Building2)
+  icon        String
   price       String
   period      String
   description String
-  features    String[] // Array de strings com as features
-  cta         String   // Call to action text
+  features    String[]
+  cta         String
   popular     Boolean  @default(false)
   active      Boolean  @default(true)
-  order       Int      @default(0) // Para ordenação dos planos
+  order       Int      @default(0)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  orders      Order[]
 
   @@map("pricing_plans")
+}
+
+model Customer {
+  id               String         @id @default(cuid())
+  email            String         @unique
+  name             String?
+  stripeCustomerId String?        @unique
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  orders           Order[]
+  payments         Payment[]
+  subscriptions    Subscription[]
+
+  @@map("customers")
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  stripeSessionId String      @unique
+  customerId      String
+  planId          String
+  planName        String
+  amount          Int
+  currency        String      @default("brl")
+  status          String
+  paymentStatus   String?
+  metadata        Json?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  customer        Customer    @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  plan            PricingPlan @relation(fields: [planId], references: [id])
+
+  @@index([customerId])
+  @@index([status])
+  @@index([createdAt])
+  @@map("orders")
+}
+
+model Subscription {
+  id                   String    @id @default(cuid())
+  stripeSubscriptionId String    @unique
+  customerId           String
+  status               String
+  currentPeriodStart   DateTime
+  currentPeriodEnd     DateTime
+  cancelAtPeriodEnd    Boolean   @default(false)
+  canceledAt           DateTime?
+  trialStart           DateTime?
+  trialEnd             DateTime?
+  planName             String?
+  metadata             Json?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+  payments             Payment[]
+  customer             Customer  @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@index([customerId])
+  @@index([status])
+  @@index([currentPeriodEnd])
+  @@map("subscriptions")
+}
+
+model Payment {
+  id              String        @id @default(cuid())
+  stripeInvoiceId String        @unique
+  customerId      String
+  subscriptionId  String?
+  amount          Int
+  amountPaid      Int
+  currency        String        @default("brl")
+  status          String
+  paidAt          DateTime?
+  dueDate         DateTime?
+  metadata        Json?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  customer        Customer      @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  subscription    Subscription? @relation(fields: [subscriptionId], references: [id])
+
+  @@index([customerId])
+  @@index([subscriptionId])
+  @@index([status])
+  @@index([paidAt])
+  @@map("payments")
 }

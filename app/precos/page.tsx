@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import AnimatedSection from '@/components/AnimatedSection';
+import { Button } from '@/app/_components/ui/button';
+import { Card, CardContent, CardHeader } from '@/app/_components/ui/card';
+import AnimatedSection from '@/app/_components/AnimatedSection';
+import { CheckoutButton } from '@/app/_components/CheckoutButton';
 import {
   Check,
   Zap,
@@ -43,10 +44,12 @@ export default async function PricingPage() {
   // Buscar planos do banco de dados
   let plans: PricingPlan[] = [];
 
+
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/pricing`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/pricing`, {
       cache: 'no-store', // Sempre buscar dados frescos
     });
+
 
     if (response.ok) {
       plans = await response.json();
@@ -56,7 +59,7 @@ export default async function PricingPage() {
     // Fallback para dados estáticos em caso de erro
     plans = [
       {
-        id: '1',
+        id: 'starter',
         name: 'Starter',
         icon: 'Zap',
         price: 'R$ 97',
@@ -76,7 +79,7 @@ export default async function PricingPage() {
         popular: false,
       },
       {
-        id: '2',
+        id: 'professional',
         name: 'Professional',
         icon: 'Users',
         price: 'R$ 297',
@@ -100,7 +103,7 @@ export default async function PricingPage() {
         popular: true,
       },
       {
-        id: '3',
+        id: 'enterprise',
         name: 'Enterprise',
         icon: 'Building2',
         price: 'Customizado',
@@ -174,8 +177,7 @@ export default async function PricingPage() {
                 <span className="text-gradient">seu negócio</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Escolha o plano ideal para sua empresa. Teste grátis por 14
-                dias, sem cartão de crédito.
+                Escolha o plano ideal para sua empresa.
               </p>
             </div>
           </AnimatedSection>
@@ -217,20 +219,20 @@ export default async function PricingPage() {
                         <span className="text-gray-500">{plan.period}</span>
                       )}
                     </div>
-                    <Button
+                    <CheckoutButton
+                      planId={plan.id}
+                      planName={plan.name}
+                      price={plan.price}
+                      period={plan.period}
+                      features={plan.features}
+                      cta={plan.cta}
+                      variant={plan.popular ? 'default' : 'outline'}
                       className={
                         plan.popular
                           ? 'bg-gradient-primary hover:opacity-90 w-full'
                           : 'w-full'
                       }
-                      variant={plan.popular ? 'default' : 'outline'}
-                      asChild
-                    >
-                      <Link href="/cadastro">
-                        {plan.cta}
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
+                    />
                   </CardHeader>
                   <CardContent className="flex-1">
                     <ul className="space-y-3">

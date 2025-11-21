@@ -150,12 +150,6 @@ export default function Footer() {
             >
               Termos de Uso
             </Link>
-            <Link
-              href="/cookies"
-              className="text-gray-400 hover:text-(--fastteam-primary) text-sm transition-colors"
-            >
-              Cookies
-            </Link>
           </div>
         </div>
       </div>
