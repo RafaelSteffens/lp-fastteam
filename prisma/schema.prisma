@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model PricingPlan {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  icon        String   // Nome do ícone (Zap, Users, Building2)
+  price       String
+  period      String
+  description String
+  features    String[] // Array de strings com as features
+  cta         String   // Call to action text
+  popular     Boolean  @default(false)
+  active      Boolean  @default(true)
+  order       Int      @default(0) // Para ordenação dos planos
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("pricing_plans")
+}

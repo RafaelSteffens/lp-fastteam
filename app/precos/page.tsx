@@ -18,74 +18,113 @@ export const metadata: Metadata = {
   keywords: 'preços CRM, planos ERP, custo automação, pricing, trial gratuito',
 };
 
-export default function PricingPage() {
-  const plans = [
-    {
-      name: 'Starter',
-      icon: Zap,
-      price: 'R$ 97',
-      period: '/mês',
-      description: 'Perfeito para começar a transformar sua operação',
-      features: [
-        'Até 3 usuários',
-        'CRM completo',
-        'Automações básicas',
-        '1.000 contatos',
-        'Suporte por email',
-        'Integrações essenciais',
-        'Relatórios básicos',
-        'Armazenamento 5GB',
-      ],
-      cta: 'Começar Teste Grátis',
-      popular: false,
-    },
-    {
-      name: 'Professional',
-      icon: Users,
-      price: 'R$ 297',
-      period: '/mês',
-      description: 'Ideal para equipes em crescimento',
-      features: [
-        'Até 15 usuários',
-        'CRM + ERP completo',
-        'Automações avançadas',
-        '10.000 contatos',
-        'Suporte prioritário',
-        'Todas as integrações',
-        'Relatórios avançados',
-        'Armazenamento 50GB',
-        'API access',
-        'Campos customizados',
-        'Email marketing',
-        'Dashboards personalizados',
-      ],
-      cta: 'Começar Teste Grátis',
-      popular: true,
-    },
-    {
-      name: 'Enterprise',
-      icon: Building2,
-      price: 'Customizado',
-      period: '',
-      description: 'Solução completa para grandes operações',
-      features: [
-        'Usuários ilimitados',
-        'Tudo do Professional',
-        'Automações ilimitadas',
-        'Contatos ilimitados',
-        'Gerente de sucesso dedicado',
-        'Suporte 24/7',
-        'Onboarding personalizado',
-        'Armazenamento ilimitado',
-        'SLA garantido',
-        'Treinamentos exclusivos',
-        'White label',
-        'Infraestrutura dedicada',
-      ],
-      cta: 'Falar com Especialista',
-      popular: false,
-    },
-  ];
+// Mapeamento de ícones
+const iconMap = {
+  Zap,
+  Users,
+  Building2,
+};
+
+type IconName = keyof typeof iconMap;
+
+interface PricingPlan {
+  id: string;
+  name: string;
+  icon: IconName;
+  price: string;
+  period: string;
+  description: string;
+  features: string[];
+  cta: string;
+  popular: boolean;
+}
+
+export default async function PricingPage() {
+  // Buscar planos do banco de dados
+  let plans: PricingPlan[] = [];
+
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/pricing`, {
+      cache: 'no-store', // Sempre buscar dados frescos
+    });
+
+    if (response.ok) {
+      plans = await response.json();
+    }
+  } catch (error) {
+    console.error('Error fetching pricing plans:', error);
+    // Fallback para dados estáticos em caso de erro
+    plans = [
+      {
+        id: '1',
+        name: 'Starter',
+        icon: 'Zap',
+        price: 'R$ 97',
+        period: '/mês',
+        description: 'Perfeito para começar a transformar sua operação',
+        features: [
+          'Até 3 usuários',
+          'CRM completo',
+          'Automações básicas',
+          '1.000 contatos',
+          'Suporte por email',
+          'Integrações essenciais',
+          'Relatórios básicos',
+          'Armazenamento 5GB',
+        ],
+        cta: 'Começar Teste Grátis',
+        popular: false,
+      },
+      {
+        id: '2',
+        name: 'Professional',
+        icon: 'Users',
+        price: 'R$ 297',
+        period: '/mês',
+        description: 'Ideal para equipes em crescimento',
+        features: [
+          'Até 15 usuários',
+          'CRM + ERP completo',
+          'Automações avançadas',
+          '10.000 contatos',
+          'Suporte prioritário',
+          'Todas as integrações',
+          'Relatórios avançados',
+          'Armazenamento 50GB',
+          'API access',
+          'Campos customizados',
+          'Email marketing',
+          'Dashboards personalizados',
+        ],
+        cta: 'Começar Teste Grátis',
+        popular: true,
+      },
+      {
+        id: '3',
+        name: 'Enterprise',
+        icon: 'Building2',
+        price: 'Customizado',
+        period: '',
+        description: 'Solução completa para grandes operações',
+        features: [
+          'Usuários ilimitados',
+          'Tudo do Professional',
+          'Automações ilimitadas',
+          'Contatos ilimitados',
+          'Gerente de sucesso dedicado',
+          'Suporte 24/7',
+          'Onboarding personalizado',
+          'Armazenamento ilimitado',
+          'SLA garantido',
+          'Treinamentos exclusivos',
+          'White label',
+          'Infraestrutura dedicada',
+        ],
+        cta: 'Falar com Especialista',
+        popular: false,
+      },
+    ];
+  }
 
   const faqs = [
     {
@@ -149,11 +188,10 @@ export default function PricingPage() {
             {plans.map((plan, index) => (
               <AnimatedSection key={plan.name} delay={index * 100}>
                 <Card
-                  className={`relative h-full flex flex-col ${
-                    plan.popular
+                  className={`relative h-full flex flex-col ${plan.popular
                       ? 'border-2 border-(--fastteam-primary) shadow-xl scale-105'
                       : 'border-2 hover:border-(--fastteam-primary)/20'
-                  }`}
+                    }`}
                 >
                   {plan.popular && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2">
@@ -164,7 +202,10 @@ export default function PricingPage() {
                   )}
                   <CardHeader className="text-center pb-8">
                     <div className="bg-gradient-primary w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                      <plan.icon className="h-8 w-8 text-white" />
+                      {(() => {
+                        const IconComponent = iconMap[plan.icon];
+                        return <IconComponent className="h-8 w-8 text-white" />;
+                      })()}
                     </div>
                     <h2 className="text-2xl font-bold mb-2">{plan.name}</h2>
                     <p className="text-gray-600 text-sm mb-6">

@@ -7,9 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:seed": "tsx prisma/seed.ts",
+    "prisma:studio": "prisma studio"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@prisma/client": "^5.22.0",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
@@ -71,6 +79,8 @@
     "autoprefixer": "^10.4.22",
     "postcss": "^8.5.6",
     "prettier": "^3.0.0-alpha.6",
-    "tailwindcss": "^4.1.17"
+    "prisma": "^5.22.0",
+    "tailwindcss": "^4.1.17",
+    "tsx": "^4.19.2"
   }
 }
