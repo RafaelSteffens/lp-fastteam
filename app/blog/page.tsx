@@ -42,7 +42,7 @@ export default function BlogPage() {
       category: 'CRM',
       readTime: '6 min',
       date: '12 Jan 2025',
-      slug: 'implementar-crm-7-dias',
+      slug: '',
       icon: Users,
     },
     {

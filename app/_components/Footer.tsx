@@ -145,7 +145,7 @@ export default function Footer() {
               Privacidade
             </Link>
             <Link
-              href="/termos"
+              href="/privacidade"
               className="text-gray-400 hover:text-(--fastteam-primary) text-sm transition-colors"
             >
               Termos de Uso
