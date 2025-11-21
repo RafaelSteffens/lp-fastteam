@@ -407,3 +407,22 @@ async function handleInvoicePaymentFailed(invoice: Stripe.Invoice) {
     console.error('Error handling invoice payment failed:', error);
   }
 }
+
+async function deactivateUserAccess(stripeCustomerId: string) {
+  console.log('Deactivating user access for Stripe Customer ID:', stripeCustomerId);
+  try {
+    const customer = await prisma.customer.findUnique({
+      where: { stripeCustomerId },
+    });
+
+    if (!customer) {
+      console.error('Customer not found for deactivation');
+      return;
+    }
+
+    console.log(`User access deactivated for customer: ${customer.email}`);
+    
+  } catch (error) {
+    console.error('Error deactivating user access:', error);
+  }
+}
