@@ -329,7 +329,7 @@ export default async function PricingPage() {
                 className="bg-white text-(--fastteam-primary) hover:bg-gray-100 text-lg px-8"
                 asChild
               >
-                <Link href="/cadastro">
+                <Link href="/precos">
                   Começar Agora
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>

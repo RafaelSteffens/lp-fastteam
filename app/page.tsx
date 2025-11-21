@@ -115,13 +115,13 @@ export default function Home() {
                   className="bg-gradient-primary hover:opacity-90 text-lg px-8"
                   asChild
                 >
-                  <Link href="/cadastro">
+                  <Link href="/precos">
                     Começar Grátis
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="text-lg px-8" asChild>
-                  <Link href="/demo">Ver Demonstração</Link>
+                  <Link href="/precos">Ver Demonstração</Link>
                 </Button>
               </div>
               <p className="text-sm text-gray-500 mt-4">
@@ -287,7 +287,7 @@ export default function Home() {
                   className="bg-white text-(--fastteam-primary) hover:bg-gray-100 text-lg px-8"
                   asChild
                 >
-                  <Link href="/cadastro">
+                  <Link href="/precos">
                     Começar Grátis Agora
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
