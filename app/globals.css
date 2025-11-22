@@ -69,6 +69,8 @@
   }
 }
 
+
+
 @layer utilities {
   .text-gradient {
     background: linear-gradient(135deg, #00bf63 0%, #006d32 100%);
@@ -103,9 +105,11 @@
   @keyframes fadeIn {
     from {
       opacity: 0;
+      transform: translateY(0);
     }
     to {
       opacity: 1;
+      transform: translateY(0);
     }
   }
 }

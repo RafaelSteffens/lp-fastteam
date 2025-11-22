@@ -4,16 +4,12 @@ import { Button } from '@/app/_components/ui/button';
 import { Card, CardContent } from '@/app/_components/ui/card';
 import { Badge } from '@/app/_components/ui/badge';
 import AnimatedSection from '@/app/_components/AnimatedSection';
+import BlogContent from './_components/BlogContent';
+import { featuredPost } from './data';
 import {
   Zap,
   Clock,
   ArrowRight,
-  TrendingUp,
-  Users,
-  Workflow,
-  BarChart3,
-  Target,
-  Sparkles,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -23,119 +19,6 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  const featuredPost = {
-    title: '10 Automações que Todo Negócio Deveria Ter em 2025',
-    excerpt:
-      'Descubra como automatizar processos repetitivos pode liberar até 20 horas por semana da sua equipe e aumentar a produtividade em 300%.',
-    category: 'Automação',
-    readTime: '8 min',
-    date: '15 Jan 2025',
-    slug: '',
-    image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg',
-  };
-
-  const blogPosts = [
-    {
-      title: 'Como Implementar um CRM do Zero em 7 Dias',
-      excerpt:
-        'Guia completo para estruturar seu CRM e começar a organizar vendas com processos claros e replicáveis.',
-      category: 'CRM',
-      readTime: '6 min',
-      date: '12 Jan 2025',
-      slug: '',
-      icon: Users,
-    },
-    {
-      title: 'ERP vs CRM: Qual a Diferença e Por Que Você Precisa de Ambos',
-      excerpt:
-        'Entenda as diferenças fundamentais e como a integração entre ERP e CRM transforma resultados.',
-      category: 'Gestão',
-      readTime: '5 min',
-      date: '10 Jan 2025',
-      slug: '',
-      icon: BarChart3,
-    },
-    {
-      title: 'Aumente Suas Vendas em 50% com Funil de Vendas Otimizado',
-      excerpt:
-        'Estratégias práticas para estruturar seu funil de vendas e converter mais leads em clientes.',
-      category: 'Vendas',
-      readTime: '7 min',
-      date: '8 Jan 2025',
-      slug: '',
-      icon: TrendingUp,
-    },
-    {
-      title: 'Gestão de Equipe Remota: 12 Ferramentas Essenciais',
-      excerpt:
-        'Descubra as melhores práticas e ferramentas para gerenciar times remotos com alta performance.',
-      category: 'Gestão',
-      readTime: '6 min',
-      date: '5 Jan 2025',
-      slug: '',
-      icon: Users,
-    },
-    {
-      title: 'Workflows Inteligentes: Como Criar Processos que Escalam',
-      excerpt:
-        'Aprenda a desenhar workflows que crescem com seu negócio sem adicionar complexidade.',
-      category: 'Automação',
-      readTime: '9 min',
-      date: '3 Jan 2025',
-      slug: '',
-      icon: Workflow,
-    },
-    {
-      title: 'Métricas que Realmente Importam para o Crescimento',
-      excerpt:
-        'As 7 métricas fundamentais que todo gestor precisa acompanhar para tomar decisões estratégicas.',
-      category: 'Analytics',
-      readTime: '5 min',
-      date: '1 Jan 2025',
-      slug: '',
-      icon: Target,
-    },
-    {
-      title: 'IA no Atendimento ao Cliente: O Que Funciona de Verdade',
-      excerpt:
-        'Como usar inteligência artificial para melhorar atendimento sem perder o toque humano.',
-      category: 'Tecnologia',
-      readTime: '8 min',
-      date: '28 Dez 2024',
-      slug: '',
-      icon: Sparkles,
-    },
-    {
-      title: 'Reduzindo CAC: 9 Estratégias Comprovadas',
-      excerpt:
-        'Táticas práticas para diminuir seu Custo de Aquisição de Cliente e aumentar o ROI.',
-      category: 'Vendas',
-      readTime: '7 min',
-      date: '26 Dez 2024',
-      slug: '',
-      icon: TrendingUp,
-    },
-    {
-      title: 'Onboarding de Clientes: Do Caos à Excelência',
-      excerpt:
-        'Transforme seu processo de onboarding em uma experiência memorável que reduz churn.',
-      category: 'CRM',
-      readTime: '6 min',
-      date: '23 Dez 2024',
-      slug: '',
-      icon: Users,
-    },
-  ];
-
-  const categories = [
-    'Todos',
-    'Automação',
-    'CRM',
-    'Vendas',
-    'Gestão',
-    'Analytics',
-    'Tecnologia',
-  ];
 
   return (
     <div className="min-h-screen pt-20">
@@ -186,7 +69,7 @@ export default function BlogPage() {
                       <span>{featuredPost.date}</span>
                     </div>
                     <Button className="bg-gradient-primary" asChild>
-                      <Link href={`/blog/${featuredPost.slug}`}>
+                      <Link href={`/blog/noticia/${featuredPost.slug}`}>
                         Ler Artigo
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
@@ -200,68 +83,7 @@ export default function BlogPage() {
       </section>
 
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="flex flex-wrap gap-3 justify-center mb-12">
-              {categories.map((category) => (
-                <Button
-                  key={category}
-                  variant={category === 'Todos' ? 'default' : 'outline'}
-                  className={
-                    category === 'Todos' ? 'bg-gradient-primary' : ''
-                  }
-                >
-                  {category}
-                </Button>
-              ))}
-            </div>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <AnimatedSection key={post.title} delay={index * 50}>
-                <Card className="h-full hover:shadow-lg transition-all hover:border-(--fastteam-primary)/20 group">
-                  <CardContent className="p-6 flex flex-col h-full">
-                    <div className="bg-gradient-primary w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                      <post.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <Badge variant="outline" className="mb-3 w-fit">
-                      {post.category}
-                    </Badge>
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-(--fastteam-primary)] transition-colors">
-                      {post.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 flex-1">{post.excerpt}</p>
-                    <div className="flex items-center justify-between pt-4 border-t">
-                      <div className="flex items-center space-x-3 text-sm text-gray-500">
-                        <span className="flex items-center space-x-1">
-                          <Clock className="h-4 w-4" />
-                          <span>{post.readTime}</span>
-                        </span>
-                        <span>{post.date}</span>
-                      </div>
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="text-(--fastteam-primary) font-medium hover:underline flex items-center space-x-1"
-                      >
-                        <span>Ler</span>
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          <AnimatedSection delay={500}>
-            <div className="mt-12 text-center">
-              <Button variant="outline" size="lg">
-                Carregar Mais Artigos
-              </Button>
-            </div>
-          </AnimatedSection>
-        </div>
+        <BlogContent />
       </section>
 
       <section className="py-16 lg:py-24 bg-linear-to-br from-(--fastteam-primary) to-(--fastteam-primary-dark) text-white">
