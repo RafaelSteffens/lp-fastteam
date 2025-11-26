@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const siteConfig = {
   name: 'FastTeam',
-  description: 'FastTeam é a solução completa de CRM, ERP e automação para empresas que buscam velocidade e eficiência. Gerencie seu time, clientes e operações em uma única plataforma.',
+  description: 'FastTeam é a solução de CRM, ERP e automação para empresas que buscam eficiência. Gerencie seu time, clientes e operações em uma única plataforma.',
   url: 'https://lp-fastteam.vercel.app',
   ogImage: 'https://fastteam.com.br/og-image.jpg',
   links: {
