@@ -9,6 +9,15 @@ export const siteConfig = {
     twitter: 'https://twitter.com/fastteam',
     github: 'https://github.com/fastteam',
   },
+  keywords: [
+    'CRM',
+    'ERP',
+    'automação',
+    'gestão',
+    'produtividade',
+    'vendas',
+    'SaaS',
+  ],
 };
 
 export function constructMetadata({
@@ -17,12 +26,14 @@ export function constructMetadata({
   image = siteConfig.ogImage,
   icons = '/icon.png',
   noIndex = false,
+  keywords = siteConfig.keywords,
 }: {
   title?: string;
   description?: string;
   image?: string;
   icons?: string;
   noIndex?: boolean;
+  keywords?: string[];
 } = {}): Metadata {
   return {
     title: {
@@ -30,6 +41,7 @@ export function constructMetadata({
       template: `%s | ${siteConfig.name}`,
     },
     description,
+    keywords,
     openGraph: {
       title: {
         default: title,
