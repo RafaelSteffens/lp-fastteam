@@ -13,11 +13,13 @@ import {
   HelpCircle,
 } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Preços - FastTeam | Planos que Cabem no Seu Bolso',
+import { constructMetadata } from '@/lib/seo';
+import { prisma } from '@/lib/prisma';
+
+export const metadata = constructMetadata({
+  title: 'Preços - Planos que Cabem no Seu Bolso',
   description: 'Conheça os planos do FastTeam: Starter, Professional e Enterprise. Teste grátis por 14 dias sem cartão de crédito.',
-  keywords: 'preços CRM, planos ERP, custo automação, pricing, trial gratuito',
-};
+});
 
 // Mapeamento de ícones
 const iconMap = {
@@ -46,14 +48,15 @@ export default async function PricingPage() {
 
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/pricing`, {
-      cache: 'no-store', // Sempre buscar dados frescos
+    const dbPlans = await prisma.pricingPlan.findMany({
+      where: {
+        active: true,
+      },
+      orderBy: {
+        order: 'asc',
+      },
     });
-
-
-    if (response.ok) {
-      plans = await response.json();
-    }
+    plans = dbPlans as unknown as PricingPlan[];
   } catch (error) {
     console.error('Error fetching pricing plans:', error);
     // Fallback para dados estáticos em caso de erro

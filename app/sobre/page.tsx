@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/app/_components/ui/button';
 import { Card, CardContent } from '@/app/_components/ui/card';
 import AnimatedSection from '@/app/_components/AnimatedSection';
@@ -13,11 +14,12 @@ import {
   CheckCircle,
 } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Sobre Nós - FastTeam | Nossa História e Missão',
+import { constructMetadata } from '@/lib/seo';
+
+export const metadata = constructMetadata({
+  title: 'Sobre Nós - Nossa História e Missão',
   description: 'Conheça a história do FastTeam, nossa missão de transformar operações empresariais e os valores que nos guiam. Mais de 1000 empresas confiam em nossa solução.',
-  keywords: 'sobre FastTeam, história empresa, missão valores, transformação digital, CRM ERP',
-};
+});
 
 export default function AboutPage() {
   const values = [
@@ -194,10 +196,14 @@ export default function AboutPage() {
               <AnimatedSection key={member.name} delay={index * 100}>
                 <Card className="text-center hover:shadow-lg transition-shadow">
                   <CardContent className="pt-8">
-                    <div
-                      className="w-24 h-24 bg-cover bg-center rounded-full mx-auto mb-4"
-                      style={{ backgroundImage: `url(${member.image})` }}
-                    />
+                    <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-4">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                     <h3 className="text-xl font-bold mb-2">{member.name}</h3>
                     <p className="text-(--fastteam-primary) font-medium mb-4">
                       {member.role}

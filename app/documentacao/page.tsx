@@ -18,11 +18,12 @@ import {
   Users,
 } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Documentação - FastTeam | Guias, APIs e Tutoriais',
+import { constructMetadata } from '@/lib/seo';
+
+export const metadata = constructMetadata({
+  title: 'Documentação - Guias, APIs e Tutoriais',
   description: 'Documentação completa do FastTeam: guias de uso, APIs, tutoriais, exemplos de código e suporte para desenvolvedores.',
-  keywords: 'documentação FastTeam, APIs, tutoriais, guias, desenvolvedores, integração',
-};
+});
 
 export default function DocumentationPage() {
   const docSections = [

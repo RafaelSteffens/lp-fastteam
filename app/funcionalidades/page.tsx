@@ -22,11 +22,12 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Funcionalidades - FastTeam | CRM, ERP e Automação Completa',
+import { constructMetadata } from '@/lib/seo';
+
+export const metadata = constructMetadata({
+  title: 'Funcionalidades - CRM, ERP e Automação Completa',
   description: 'Descubra todas as funcionalidades do FastTeam: CRM avançado, ERP integrado, automação inteligente, gestão de equipe e muito mais.',
-  keywords: 'funcionalidades CRM, recursos ERP, automação empresarial, gestão de equipe, dashboards, relatórios',
-};
+});
 
 export default function FeaturesPage() {
   const mainFeatures = [

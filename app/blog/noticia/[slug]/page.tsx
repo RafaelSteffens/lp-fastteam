@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Button } from '@/app/_components/ui/button';
 import { Badge } from '@/app/_components/ui/badge';
@@ -19,6 +20,8 @@ interface Props {
   }>;
 }
 
+import { constructMetadata } from '@/lib/seo';
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
@@ -29,10 +32,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  return {
+  return constructMetadata({
     title: `${post.title} - Blog FastTeam`,
     description: post.excerpt,
-  };
+    image: post.image,
+  });
 }
 
 export async function generateStaticParams() {
@@ -85,10 +89,15 @@ export default async function BlogPostPage({ params }: Props) {
               </div>
 
               {post.image && (
-                <div
-                  className="w-full h-64 md:h-96 rounded-2xl bg-cover bg-center shadow-lg mb-8"
-                  style={{ backgroundImage: `url(${post.image})` }}
-                />
+                <div className="relative w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-lg mb-8">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
               )}
             </div>
           </AnimatedSection>
