@@ -1,6 +1,12 @@
 import Link from 'next/link';
 import { Button } from '@/app/_components/ui/button';
 import { Card, CardContent } from '@/app/_components/ui/card';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/app/_components/ui/accordion';
 import AnimatedSection from '@/app/_components/AnimatedSection';
 import {
   Zap,
@@ -14,11 +20,14 @@ import {
   CheckCircle2,
   ArrowRight,
   Star,
+  Rocket,
+  Settings,
+  Headphones,
 } from 'lucide-react';
 import { constructMetadata } from '@/lib/seo';
 
 export const metadata = constructMetadata({
-  title: 'Home - Velocidade e Eficiência',
+  title: 'FastTeam - Velocidade e Eficiência',
   description: 'A plataforma completa de CRM, ERP e automação que acelera suas operações.',
 });
 
@@ -28,47 +37,47 @@ export default function Home() {
       icon: Zap,
       title: 'Automação Inteligente',
       description:
-        'Automatize processos repetitivos e libere sua equipe para focar no que realmente importa.',
+        'Elimine tarefas manuais e repetitivas com nossa automação inteligente. Configure gatilhos e ações que funcionam 24/7, garantindo que nenhum lead seja perdido e que seus processos de negócio fluam com velocidade máxima.',
     },
     {
       icon: Users,
       title: 'Gestão de Equipe',
       description:
-        'Organize, monitore e potencialize o desempenho do seu time em tempo real.',
+        'Tenha visibilidade total sobre a produtividade do seu time. Atribua tarefas, monitore prazos e facilite a colaboração em tempo real, criando uma cultura de eficiência e alta performance em toda a organização.',
     },
     {
       icon: MessageSquare,
       title: 'CRM Completo',
       description:
-        'Gerencie relacionamentos com clientes de forma inteligente e eficiente.',
+        'Centralize todas as interações com seus clientes. Do primeiro contato ao pós-venda, mantenha um histórico detalhado e utilize dados para personalizar o atendimento e aumentar suas taxas de conversão.',
     },
     {
       icon: BarChart3,
       title: 'ERP Integrado',
       description:
-        'Controle financeiro, estoque e operações em uma única plataforma.',
+        'Conecte vendas, financeiro e estoque em uma única plataforma. Elimine silos de dados e tenha uma visão holística da saúde financeira do seu negócio, facilitando a tomada de decisões estratégicas.',
     },
     {
       icon: Workflow,
       title: 'Fluxos Personalizados',
       description:
-        'Crie workflows sob medida para as necessidades específicas do seu negócio.',
+        'Cada negócio é único. Crie workflows que se adaptam perfeitamente aos seus processos específicos, sem a necessidade de código complexo. Flexibilidade total para escalar sua operação.',
     },
     {
       icon: TrendingUp,
       title: 'Análises em Tempo Real',
       description:
-        'Dashboards intuitivos com métricas que impulsionam decisões estratégicas.',
+        'Transforme dados em insights acionáveis. Acompanhe KPIs vitais em dashboards intuitivos e tome decisões baseadas em fatos para impulsionar o crescimento sustentável da sua empresa.',
     },
   ];
 
   const benefits = [
-    'Reduza o tempo de atendimento em até 70%',
-    'Aumente a produtividade da equipe em 3x',
-    'Automatize mais de 80% das tarefas manuais',
-    'Integração com principais ferramentas do mercado',
-    'Suporte especializado 24/7',
-    'Dados seguros com criptografia de ponta',
+    'Reduza o tempo de atendimento em até 70% com respostas automáticas',
+    'Aumente a produtividade da equipe em 3x eliminando retrabalho',
+    'Automatize mais de 80% das tarefas manuais administrativas',
+    'Integração nativa com as principais ferramentas do mercado',
+    'Suporte técnico especializado disponível 24/7 para sua paz de espírito',
+    'Segurança de nível bancário com criptografia de ponta a ponta',
   ];
 
   const testimonials = [
@@ -76,22 +85,50 @@ export default function Home() {
       name: 'Carlos Silva',
       role: 'CEO, TechStart',
       content:
-        'FastTeam revolucionou nossa operação. Conseguimos reduzir o tempo de resposta ao cliente em 65% no primeiro mês.',
+        'FastTeam revolucionou nossa operação. Conseguimos reduzir o tempo de resposta ao cliente em 65% no primeiro mês. A velocidade que ganhamos foi crucial para nossa expansão.',
       rating: 5,
     },
     {
       name: 'Ana Rodrigues',
       role: 'Diretora de Operações, VendaMais',
       content:
-        'A automação de processos nos permitiu escalar 3x mais rápido. Ferramenta indispensável!',
+        'A automação de processos nos permitiu escalar 3x mais rápido sem aumentar a equipe na mesma proporção. É uma ferramenta indispensável para qualquer negócio que busca eficiência.',
       rating: 5,
     },
     {
       name: 'Pedro Santos',
       role: 'Gerente Comercial, InovaCorp',
       content:
-        'O CRM integrado com ERP mudou completamente nossa forma de trabalhar. Recomendo demais!',
+        'O CRM integrado com ERP mudou completamente nossa forma de trabalhar. Agora temos controle total sobre o funil de vendas e o financeiro em um só lugar. Recomendo demais!',
       rating: 5,
+    },
+  ];
+
+  const faqs = [
+    {
+      question: 'Quanto tempo leva para implementar o FastTeam?',
+      answer:
+        'A implementação do FastTeam é projetada para ser rápida e eficiente. A maioria dos nossos clientes consegue configurar suas contas, importar dados e começar a operar em menos de uma semana. Oferecemos um processo de onboarding guiado e suporte dedicado para garantir que você extraia valor da plataforma desde o primeiro dia.',
+    },
+    {
+      question: 'O FastTeam se integra com outras ferramentas?',
+      answer:
+        'Sim! O FastTeam possui integrações nativas com as ferramentas mais populares do mercado, como Slack, Google Workspace, Mailchimp, e muitas outras. Além disso, nossa API aberta permite conectar praticamente qualquer software ao seu ecossistema, garantindo que seus dados fluam livremente entre suas aplicações.',
+    },
+    {
+      question: 'Como funciona o suporte técnico?',
+      answer:
+        'Nosso suporte é um dos nossos maiores diferenciais. Oferecemos atendimento 24/7 via chat e e-mail para todos os planos. Clientes do plano Enterprise também contam com um gerente de conta dedicado e suporte telefônico prioritário. Estamos sempre prontos para ajudar você a resolver qualquer desafio com velocidade.',
+    },
+    {
+      question: 'Meus dados estarão seguros?',
+      answer:
+        'A segurança do seu negócio é nossa prioridade número um. Utilizamos criptografia de ponta a ponta (AES-256), backups automáticos diários e hospedagem em servidores de classe mundial. Estamos em conformidade com a LGPD e realizamos auditorias de segurança regulares para garantir a proteção total das suas informações.',
+    },
+    {
+      question: 'Posso personalizar os fluxos de trabalho?',
+      answer:
+        'Absolutamente. O FastTeam foi construído com a flexibilidade em mente. Nosso construtor de workflows visual permite que você desenhe processos que espelham exatamente como sua empresa opera. Você pode criar automações simples ou complexas, definir regras de negócios e adaptar a plataforma à medida que sua empresa cresce.',
     },
   ];
 
@@ -113,7 +150,7 @@ export default function Home() {
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
                 FastTeam é a plataforma completa de CRM, ERP e automação que
                 acelera suas operações, otimiza o atendimento e impulsiona
-                resultados.
+                resultados reais. Descubra como a tecnologia pode trabalhar a seu favor.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -148,7 +185,7 @@ export default function Home() {
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 Ferramentas poderosas que trabalham juntas para transformar sua
-                operação.
+                operação e garantir a eficiência que seu negócio merece.
               </p>
             </div>
           </AnimatedSection>
@@ -164,7 +201,7 @@ export default function Home() {
                     <h3 className="text-xl font-semibold mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600">{feature.description}</p>
+                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
                   </CardContent>
                 </Card>
               </AnimatedSection>
@@ -186,9 +223,10 @@ export default function Home() {
                   Por que empresas escolhem o{' '}
                   <span className="text-gradient">FastTeam</span>?
                 </h2>
-                <p className="text-lg text-gray-600 mb-8">
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                   Mais de 5.000 empresas já transformaram suas operações e
                   alcançaram resultados extraordinários com nossa plataforma.
+                  Focamos em entregar valor real através de velocidade e eficiência.
                 </p>
                 <div className="space-y-4">
                   {benefits.map((benefit, index) => (
@@ -235,7 +273,59 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How it Works Section */}
       <section className="py-16 lg:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Como o FastTeam <span className="text-gradient">Funciona</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Implementação simples e rápida para você começar a ver resultados imediatamente.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <AnimatedSection delay={0}>
+              <div className="text-center p-6">
+                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Rocket className="h-8 w-8 text-(--fastteam-primary)" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">1. Configure sua Conta</h3>
+                <p className="text-gray-600">
+                  Crie sua conta em minutos e configure os parâmetros iniciais do seu negócio. Nossa interface intuitiva guia você em cada passo.
+                </p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={100}>
+              <div className="text-center p-6">
+                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Settings className="h-8 w-8 text-(--fastteam-primary)" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">2. Integre suas Ferramentas</h3>
+                <p className="text-gray-600">
+                  Conecte o FastTeam às ferramentas que você já usa. Centralize seus dados e elimine a necessidade de alternar entre múltiplas abas.
+                </p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={200}>
+              <div className="text-center p-6">
+                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <TrendingUp className="h-8 w-8 text-(--fastteam-primary)" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">3. Acelere seus Resultados</h3>
+                <p className="text-gray-600">
+                  Ative as automações e comece a monitorar seus KPIs em tempo real. Veja sua eficiência aumentar e seu negócio crescer com velocidade.
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">
@@ -272,6 +362,43 @@ export default function Home() {
                 </Card>
               </AnimatedSection>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Perguntas Frequentes
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Tire suas dúvidas sobre como o FastTeam pode ajudar seu negócio.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="max-w-3xl mx-auto">
+            <AnimatedSection delay={200}>
+              <Accordion type="single" collapsible className="w-full space-y-4">
+                {faqs.map((faq, index) => (
+                  <AccordionItem
+                    key={index}
+                    value={`item-${index}`}
+                    className="bg-white border border-gray-100 rounded-xl px-6 shadow-sm hover:shadow-md transition-all duration-200 data-[state=open]:border-(--fastteam-primary) data-[state=open]:ring-1 data-[state=open]:ring-(--fastteam-primary)/20"
+                  >
+                    <AccordionTrigger className="text-left text-lg font-semibold text-gray-800 hover:text-(--fastteam-primary) data-[state=open]:text-(--fastteam-primary)">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-600 text-base leading-relaxed pb-6">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </AnimatedSection>
           </div>
         </div>
       </section>
