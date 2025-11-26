@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/app/_components/ui/button';
 import { Card, CardContent } from '@/app/_components/ui/card';
 import { Badge } from '@/app/_components/ui/badge';
@@ -12,11 +13,12 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Blog - FastTeam | Dicas de Gestão, CRM e Automação',
+import { constructMetadata } from '@/lib/seo';
+
+export const metadata = constructMetadata({
+  title: 'Blog - Dicas de Gestão, CRM e Automação',
   description: 'Aprenda estratégias de crescimento, gestão de equipe, automação de processos e otimização de vendas com o blog do FastTeam.',
-  keywords: 'blog CRM, gestão empresarial, automação, produtividade, vendas, marketing',
-};
+});
 
 export default function BlogPage() {
 
@@ -48,10 +50,14 @@ export default function BlogPage() {
           <AnimatedSection>
             <Card className="overflow-hidden hover:shadow-xl transition-shadow">
               <div className="grid lg:grid-cols-2">
-                <div
-                  className="h-64 lg:h-auto bg-cover bg-center"
-                  style={{ backgroundImage: `url(${featuredPost.image})` }}
-                />
+                <div className="relative h-64 lg:h-auto">
+                  <Image
+                    src={featuredPost.image!}
+                    alt={featuredPost.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <CardContent className="p-8 lg:p-12 flex flex-col justify-center">
                   <Badge className="mb-4 w-fit bg-gradient-primary">
                     Destaque

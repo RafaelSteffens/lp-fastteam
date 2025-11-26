@@ -16,11 +16,12 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Contato - FastTeam | Fale Conosco',
+import { constructMetadata } from '@/lib/seo';
+
+export const metadata = constructMetadata({
+  title: 'Contato - Fale Conosco',
   description: 'Entre em contato com o FastTeam. Suporte técnico, vendas, dúvidas gerais. Chat ao vivo, email e telefone disponíveis.',
-  keywords: 'contato FastTeam, suporte, atendimento, vendas, dúvidas, helpdesk',
-};
+});
 
 export default function ContactPage() {
   const contactMethods = [

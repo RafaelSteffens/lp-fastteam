@@ -14,11 +14,12 @@ import {
   CheckCircle,
 } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Política de Privacidade - FastTeam | Proteção de Dados',
+import { constructMetadata } from '@/lib/seo';
+
+export const metadata = constructMetadata({
+  title: 'Política de Privacidade - Proteção de Dados',
   description: 'Política de privacidade do FastTeam. Como coletamos, usamos e protegemos seus dados pessoais em conformidade com a LGPD.',
-  keywords: 'privacidade, LGPD, proteção dados, política privacidade, dados pessoais',
-};
+});
 
 export default function PrivacyPage() {
   const privacySections = [

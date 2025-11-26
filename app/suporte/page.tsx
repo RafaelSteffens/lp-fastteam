@@ -19,11 +19,12 @@ import {
   FileText,
 } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Suporte - FastTeam | Ajuda e Atendimento',
+import { constructMetadata } from '@/lib/seo';
+
+export const metadata = constructMetadata({
+  title: 'Suporte - Ajuda e Atendimento',
   description: 'Centro de suporte do FastTeam. Base de conhecimento, chat ao vivo, tutoriais e atendimento especializado para ajudar você.',
-  keywords: 'suporte FastTeam, ajuda, atendimento, chat, tutoriais, FAQ',
-};
+});
 
 export default function SupportPage() {
   const supportChannels = [

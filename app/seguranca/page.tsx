@@ -17,11 +17,12 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Segurança - FastTeam | Proteção de Dados e Conformidade',
+import { constructMetadata } from '@/lib/seo';
+
+export const metadata = constructMetadata({
+  title: 'Segurança - Proteção de Dados e Conformidade',
   description: 'Conheça nossas medidas de segurança: criptografia de ponta, conformidade LGPD, backup automático e proteção avançada contra ameaças.',
-  keywords: 'segurança dados, LGPD, criptografia, backup, conformidade, proteção dados',
-};
+});
 
 export default function SecurityPage() {
   const securityFeatures = [

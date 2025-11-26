@@ -15,6 +15,12 @@ import {
   ArrowRight,
   Star,
 } from 'lucide-react';
+import { constructMetadata } from '@/lib/seo';
+
+export const metadata = constructMetadata({
+  title: 'Home - Velocidade e Eficiência',
+  description: 'A plataforma completa de CRM, ERP e automação que acelera suas operações.',
+});
 
 export default function Home() {
   const features = [

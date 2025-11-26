@@ -5,10 +5,13 @@ import { Card, CardContent } from '@/app/_components/ui/card';
 import AnimatedSection from '@/app/_components/AnimatedSection';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Checkout Concluído - FastTeam',
-  description: 'Seu pagamento foi processado com sucesso!',
-};
+import { constructMetadata } from '@/lib/seo';
+
+export const metadata = constructMetadata({
+  title: 'Checkout Concluído - Pagamento Confirmado',
+  description: 'Seu pagamento foi processado com sucesso! Obrigado por escolher o FastTeam.',
+  noIndex: true, // Don't index success pages
+});
 
 export default function CheckoutSuccessPage() {
   return (
