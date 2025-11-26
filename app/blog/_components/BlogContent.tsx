@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/app/_components/ui/card';
 import { Badge } from '@/app/_components/ui/badge';
 import AnimatedSection from '@/app/_components/AnimatedSection';
 import { blogPosts } from '../data';
+import { formatDate } from '@/lib/utils';
 import { Clock, ArrowRight } from 'lucide-react';
 
 export default function BlogContent() {
@@ -67,7 +68,7 @@ export default function BlogContent() {
                       <Clock className="h-4 w-4" />
                       <span>{post.readTime}</span>
                     </span>
-                    <span>{post.date}</span>
+                    <span>{formatDate(post.date)}</span>
                   </div>
                   <Link
                     href={`/blog/noticia/${post.slug}`}

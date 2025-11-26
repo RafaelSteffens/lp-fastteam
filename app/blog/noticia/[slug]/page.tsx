@@ -21,6 +21,7 @@ interface Props {
 }
 
 import { constructMetadata } from '@/lib/seo';
+import { formatDate } from '@/lib/utils';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -80,7 +81,7 @@ export default async function BlogPostPage({ params }: Props) {
               <div className="flex flex-wrap items-center gap-6 text-gray-500 text-sm mb-8">
                 <div className="flex items-center">
                   <Calendar className="h-4 w-4 mr-2" />
-                  {post.date}
+                  {formatDate(post.date)}
                 </div>
                 <div className="flex items-center">
                   <Clock className="h-4 w-4 mr-2" />
